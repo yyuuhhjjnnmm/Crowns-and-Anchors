@@ -56,6 +56,7 @@ def main():
 			      else:
 				      #Making bet
 				      player_list[i].bets.append(Bet(sy,amount))
+				      player_list[i].money -= amount
 				      print("Bet made.")
 				#Checking for more bets
 			      skip = input("Finish betting? (y/n)")
@@ -111,7 +112,6 @@ class Player(object):
 			if (winningSlot.syCount(self.bets[i].symbol) == 3 and self.bets[i].symbol == "anchors"):
 				print("Winners On Anchors -- Ahoy!!!!")
 		
-			payout -= int((self.bets[i]).amount)	#Initial bet
 			payout += winningSlot.syCount(self.bets[i].symbol) * int(self.bets[i].amount) #winnings
 			if (winningSlot.syCount(self.bets[i].symbol) > 0):
 				payout += int((self.bets[i]).amount)#Paying back initial bet if won
